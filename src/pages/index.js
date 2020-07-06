@@ -3,6 +3,7 @@ import Layout from "../components/Layout"
 import Services from "../components/Services"
 import SEO from "../components/SEO"
 import Hero from "../components/Hero"
+import Jobs from "../components/Jobs"
 export default ({ data }) => {
   return (
     <Layout>
@@ -10,6 +11,7 @@ export default ({ data }) => {
       <Layout>
         <Hero />
         <Services />
+        <Jobs />
       </Layout>
     </Layout>
   )
