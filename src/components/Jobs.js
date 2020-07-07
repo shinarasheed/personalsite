@@ -8,6 +8,7 @@ export const query = graphql`
   {
     allStrapiJobs(sort: { fields: strapiId, order: DESC }) {
       nodes {
+        strapiId
         company
         position
         date
@@ -37,7 +38,7 @@ const Jobs = () => {
             return (
               <button
                 onClick={() => setValue(index)}
-                key={item.strapiId}
+                key={index}
                 className={`job-btn ${index === value && "active-btn"}`}
               >
                 {item.company}
