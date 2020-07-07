@@ -6,9 +6,14 @@ import Hero from "../components/Hero"
 import Jobs from "../components/Jobs"
 import { graphql } from "gatsby"
 import Projects from "../components/Projects"
+import Blogs from "../components/Blogs"
 export default ({ data }) => {
   const {
     projects: { nodes: projects },
+  } = data
+
+  const {
+    blogs: { nodes: blogs },
   } = data
 
   return (
@@ -19,6 +24,7 @@ export default ({ data }) => {
         <Services />
         <Jobs />
         <Projects projects={projects} title="featured projects" showLink />
+        <Blogs blogs={blogs} title="blog" showLink />
       </Layout>
     </Layout>
   )
@@ -44,6 +50,25 @@ export const query = graphql`
         stack {
           id
           title
+        }
+      }
+    }
+
+    blogs: allStrapiBlogs(sort: { fields: date, order: DESC }, limit: 3) {
+      nodes {
+        title
+        slug
+        content
+        description
+        date(formatString: "MMMM Do, YYYY")
+        id
+        category
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }
