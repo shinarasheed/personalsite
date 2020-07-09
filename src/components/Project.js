@@ -32,7 +32,7 @@ const Project = ({ description, title, github, stack, url, image, index }) => {
 Project.propTypes = {
   description: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  githuburl: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   //will do the rest later
 }
